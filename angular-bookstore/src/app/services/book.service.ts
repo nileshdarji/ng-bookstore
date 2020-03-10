@@ -13,6 +13,7 @@ export class BookService {
 
   constructor(private httpClient: HttpClient) { }
 
+  // pipe/map and GetResponseBooks are used to extract only the books array
   getBooks(): Observable<Book[]> {
     return this.httpClient.get<GetResponseBooks>(this.baseUrl).pipe(
       map(response => response._embedded.books)
